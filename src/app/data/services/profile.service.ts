@@ -1,21 +1,20 @@
-
 import { HttpClient } from '@angular/common/http';
-import {inject, Injectable } from '@angular/core';
-import { Profile } from '../interfaces/profile.inerface';
+import { inject, Injectable } from '@angular/core';
+import { Profile } from '../interfaces/profile.interface';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class ProfileService {
 
-  http = inject(HttpClient)
+	http = inject(HttpClient)
 
-  baseApyUrl = 'https://icherniakov.ru/yt-course/'
+	baseApyUrl = 'https://icherniakov.ru/yt-course/'
 
-  constructor() { }
+	constructor() { }
 
-  getTestAccounts() { 
-   return this.http.get<Profile[]>(`${ this.baseApyUrl }account/test_accounts`)
-  }
+	getTestAccounts() {
+		return this.http.get<Profile[]>(`${this.baseApyUrl}account/test_accounts`)
+	}
 
 }

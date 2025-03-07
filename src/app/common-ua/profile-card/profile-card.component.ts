@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { Profile } from '../../data/interfaces/profile.inerface';
+import { Profile } from '../../data/interfaces/profile.interface';
+import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
 
 @Component({
   selector: 'app-profile-card',
-  imports: [],
   templateUrl: './profile-card.component.html',
-  styleUrl: './profile-card.component.scss'
+  styleUrl: './profile-card.component.scss',
+  standalone: true,
+  imports: [ImgUrlPipe]
 })
 export class ProfileCardComponent {
   @Input() profile!: Profile;

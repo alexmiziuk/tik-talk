@@ -19,11 +19,11 @@ export class AuthService {
 
   get isAuth() {
     if (!this.token) {
-      this.token = this.cookieService.get('token')
-      this.refreshToken = this.cookieService.get('refreshToken')
+      this.token = this.cookieService.get('token') || null;
+      this.refreshToken = this.cookieService.get('refreshToken') || null;
     }
 
-    return !!this.token
+    return !!this.token;
   }
   login(payload: { username: string; password: string; }) {
 

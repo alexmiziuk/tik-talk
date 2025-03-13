@@ -1,4 +1,5 @@
 export interface Profile {
+  items: any
   "id": number
   "username": string,
   "description": string,

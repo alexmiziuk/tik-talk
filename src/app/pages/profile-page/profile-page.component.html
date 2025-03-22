@@ -1,1 +1,6 @@
-<p>profile-page works!</p>
+
+<!-- <app-sidebar ></app-sidebar> -->
+
+<ng-container *ngIf="profile$ | async as profile">
+  <app-profile-header [profile]="profile"></app-profile-header>
+</ng-container>

@@ -32,7 +32,7 @@ isPasswordVisible = signal<boolean>(false)
       //@ts-ignore
       this.authService.login(this.form.value).subscribe(
         res => {
-          this.router.navigate([''])
+          this.router.navigate(['/profile/me'])
           console.log(res)
         }
       )

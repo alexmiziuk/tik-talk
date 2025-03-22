@@ -19,6 +19,7 @@
 }
 
 body {
+  height: 100vh;
   background-color: var(--dark-color);
   color: var(--light-color);
   font-family: "JetBrains Mono", monospace;
@@ -74,6 +75,12 @@ body {
   line-height: 56px;
   font-weight: 800;
 }
+.h4 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 32px;
+}
 .h6 {
   font-size: 18px;
   line-height: 24px;
@@ -106,4 +113,11 @@ body {
   line-height: 21px;
   font-family: "JetBrains Mono", sans-serif;
   color: var(--light-color);
+}
+
+.regular {
+  font-size: 14px;
+  font-style: normal;
+  line-height: 20px;
+  font-weight: 400;
 }

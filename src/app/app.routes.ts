@@ -9,9 +9,10 @@ export const routes: Routes = [
   {
     path: '', component: LayoutComponent, children: [
       { path: '', component: SearchPageComponent },
-      { path: 'profile', component: ProfilePageComponent }
+      { path: 'profile/:id', component: ProfilePageComponent },
+      { path: 'profile/me', component: ProfilePageComponent } // Добавьте этот маршрут
     ],
     canActivate: [canActivateAuth]
   },
-  { path: 'login', component: LoginPageComponent }
+  { path: 'login', component: LoginPageComponent },
 ];

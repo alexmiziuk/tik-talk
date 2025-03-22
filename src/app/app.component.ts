@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ProfileCardComponent } from './common-ua/profile-card/profile-card.component';
 import { CommonModule } from '@angular/common';
 
 
@@ -8,7 +7,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
 	selector: 'app-root',
-	imports: [RouterOutlet, ProfileCardComponent, CommonModule],
+	imports: [RouterOutlet,  CommonModule],
 
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.scss'

@@ -31,11 +31,22 @@ export class ProfileService {
   getAccount(id: string) {
     return this.http.get<Profile>(`${this.baseApyUrl}account/${id}`)
   }
-  getSubscribersShortList() {
+  getSubscribersShortList(subsAmount = 3) {
     return this.http.get<Profile>(`${this.baseApyUrl}account/subscribers/?page=1&size=50`)
       .pipe(
-        map(res => res.items.slice(1, 4))
+        map(res => res.items.slice(1, subsAmount + 1))
       )
+  }
+
+  patchProfile(profile: Partial<Profile>) {
+    console.log('Отправляемые данные:', profile); // Логируем отправку
+    return this.http.patch<Profile>(`${this.baseApyUrl}account/me`, profile)
+      .pipe(
+        tap(updatedProfile => {
+          console.log('Получен обновлённый профиль:', updatedProfile);
+          this.me.set(updatedProfile);
+        })
+      );
   }
 
 }

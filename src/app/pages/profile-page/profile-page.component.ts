@@ -4,20 +4,32 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { ProfileHeaderComponent } from '../../common-ui/profile-header/profile-header.component';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
+import { SvgIconComponent } from "../../common-ui/svg-icon/svg-icon.component";
+import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { PostFeedComponent } from './post-feed/post-feed.component';
 
 @Component({
-  standalone:true,
+  standalone: true,
   selector: 'app-profile-page',
-  imports: [ProfileHeaderComponent, AsyncPipe, NgIf],
+  imports: [
+    CommonModule,
+    AsyncPipe,
+    ProfileHeaderComponent,
+    SvgIconComponent,
+    ImgUrlPipe,
+    RouterLink,
+    PostFeedComponent],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.scss'
 })
 export class ProfilePageComponent {
   profileService = inject(ProfileService);
   route = inject(ActivatedRoute);
-
   me$ = toObservable(this.profileService.me)
+  subscribers$ = this.profileService.getSubscribersShortList(5)
   profile$ = this.route.params
     .pipe(
       switchMap(({ id }) => {
@@ -25,6 +37,9 @@ export class ProfilePageComponent {
         return this.profileService.getAccount(id);
       })
     );
+  trackSubscriber(index: number, subscriber: any): number {
+    return subscriber.id;
+  }
 }
 
 

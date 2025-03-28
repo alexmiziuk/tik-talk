@@ -1,13 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 /* test */
-@import "fonts";
-@import "margins";
+@use "fonts";
+@use "margins";
 :root {
   --dark-color: #000000;
   --light-color: #ffffff;
   --primary-color: #ae7aff;
   --gray-color: #5f6460;
   --dark-hover-color: #161616;
+  --light-transparent-color: rgba(255, 255, 255, 0.75);
 }
 
 *,
@@ -113,6 +114,35 @@ body {
   line-height: 21px;
   font-family: "JetBrains Mono", sans-serif;
   color: var(--light-color);
+}
+
+.tt-form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+}
+.tt-form-label__text {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--light-transparent-color);
+}
+.tt-form-input {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  border: none;
+  background: none;
+  border-bottom: 1px solid var(--light-color);
+  height: 33px;
+  color: var(--light-color);
+
+  &:focus-visible {
+    outline: 1px solid var(--primary-color);
+  }
 }
 
 .regular {

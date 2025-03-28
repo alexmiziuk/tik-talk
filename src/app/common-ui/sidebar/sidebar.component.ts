@@ -1,14 +1,11 @@
 import { Component, inject, Input } from '@angular/core';
 import { SvgIconComponent } from '../svg-icon/svg-icon.component';
-import { NgFor, AsyncPipe, JsonPipe} from '@angular/common';
+import { NgFor, AsyncPipe } from '@angular/common';
 import { SubscriberCardComponent } from './subscriber-card/subscriber-card.component'
 import { RouterLink } from '@angular/router';
 import { ProfileService } from '../../data/services/profile.service';
 import { firstValueFrom } from 'rxjs';
 import { ImgUrlPipe } from '../../helpers/pipes/img-url.pipe';
-
-
-
 
 @Component({
   selector: 'app-sidebar',
@@ -20,7 +17,6 @@ export class SidebarComponent {
   profileService = inject(ProfileService)
   subscribers$ = this.profileService.getSubscribersShortList()
   me = this.profileService.me
-
 
   menuItems = [
     {
@@ -40,7 +36,7 @@ export class SidebarComponent {
     }
   ]
 
-  ngOnInit() {
+ngOnInit() {
     firstValueFrom(this.profileService.getMe())
   }
 }

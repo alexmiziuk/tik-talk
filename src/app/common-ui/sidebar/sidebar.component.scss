@@ -40,11 +40,11 @@
   width: 100%;
   text-align: left;
   border-radius: 2px;
+  text-decoration: none;
   svg {
     width: 16px;
     height: 16px;
-    color: white;
-  }
+}
   &:hover,
   &:focus-visible {
     background: var(--dark-hover-color);
@@ -78,10 +78,7 @@
   text-decoration: none;
 }
 
-.to-subscribers-icon {
-  width: 18px;
-  height: 18px;
-}
+
 
 .my-avatar {
   width: 32px;
@@ -103,4 +100,10 @@
     width: 100%;
     height: 100%;
   }
+}
+
+.to-subscribers-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--primary-color);
 }
